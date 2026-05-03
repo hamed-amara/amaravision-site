@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Datenschutz — AmaraVision</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet" />
+
+<style>
+  :root { --gold: #C5A059; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: #000; color: rgba(255,255,255,0.7); font-family: 'DM Sans', sans-serif; line-height: 1.8; cursor: none; overflow-x: hidden; }
+
+  /* ── Cursor Styles ────────────────────────────────────────── */
+  .cursor { position: fixed; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); }
+  .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(197,160,89,0.5); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); }
+
+  /* ── Noise grain ────────────────────────────────────────── */
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 100; opacity: 0.3;
+  }
+
+  /* ── Nav ────────────────────────────────────────────────── */
+  nav { padding: 40px 60px; display: flex; justify-content: center; border-bottom: 1px solid rgba(197,160,89,0.1); position: relative; z-index: 10; }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 21px; letter-spacing: 0.16em; color: #fff; text-decoration: none; }
+  .nav-logo span { color: var(--gold); }
+
+  /* ── Content ────────────────────────────────────────────── */
+  .content { padding: 100px 20px; max-width: 850px; margin: 0 auto; position: relative; z-index: 2; }
+  .section-eyebrow { font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 18px; display: block; }
+  h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4vw, 54px); font-weight: 300; color: #fff; text-align: center; margin-bottom: 60px; }
+  
+  .legal-box { background: rgba(197,160,89,0.03); border: 1px solid rgba(197,160,89,0.08); padding: 50px; border-radius: 2px; }
+  h5 { color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 24px; margin-top: 40px; margin-bottom: 15px; font-weight: 300; }
+  p { margin-bottom: 22px; font-size: 15px; font-weight: 300; }
+  b { color: #fff; font-weight: 400; }
+
+  /* ── Footer ─────────────────────────────────────────────── */
+  footer { padding: 60px; border-top: 1px solid rgba(255,255,255,0.06); text-align: center; }
+  .footer-copy { font-size: 11px; color: rgba(255,255,255,0.15); letter-spacing: 0.05em; }
+
+  @media (max-width: 768px) {
+    body { cursor: auto; }
+    .cursor, .cursor-ring { display: none; }
+    .legal-box { padding: 30px 20px; }
+    nav { padding: 30px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">AMARA<span>VISION</span></a>
+</nav>
+
+<section class="content">
+  <span class="section-eyebrow">Rechtliches</span>
+  <h2>Datenschutzerklärung</h2>
+  
+  <div class="legal-box">
+    <p><b>Erklärung zur Informationspflicht</b></p>
+    <p>In folgender Datenschutzerklärung informieren wir Sie über die wichtigsten Aspekte der Datenverarbeitung im Rahmen unserer Webseite. Wir erheben und verarbeiten personenbezogene Daten nur auf Grundlage der gesetzlichen Bestimmungen (DSGVO, TKG 2003).</p>
+    
+    <h5>Kontakt mit uns</h5>
+    <p>Wenn Sie uns per Email kontaktieren, werden die von Ihnen übermittelten Daten zwecks Bearbeitung Ihrer Anfrage sechs Monate bei uns gespeichert. Es erfolgt keine Weitergabe Ihrer Daten ohne Ihre Einwilligung.</p>
+    <p>Email: <b>info@amaravision.com</b></p>
+
+    <h5>Ihre Rechte</h5>
+    <p>Ihnen stehen grundsätzlich die Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerruf und Widerspruch zu.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-copy">© 2025 AmaraVision · Wien</div>
+</footer>
+
+<script>
+  // ── Cursor Script (angepasst auf 0.35 für Schnelligkeit) ──
+  document.addEventListener('DOMContentLoaded', function() {
+    var cur = document.getElementById('cursor');
+    var ring = document.getElementById('cursorRing');
+    var isDesktop = window.matchMedia('(pointer: fine)').matches;
+
+    if (isDesktop && cur && ring) {
+      var mx = 0, my = 0, rx = 0, ry = 0;
+      document.addEventListener('mousemove', function(e) {
+        mx = e.clientX; my = e.clientY;
+        cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+      });
+      (function loop() {
+        rx += (mx - rx) * 0.35; // Erhöhter Wert für schnellere Reaktion
+        ry += (my - ry) * 0.35;
+        ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+        requestAnimationFrame(loop);
+      })();
+      document.querySelectorAll('a, b').forEach(function(el) {
+        el.addEventListener('mouseenter', function() {
+          ring.style.width = '54px'; ring.style.height = '54px';
+          ring.style.borderColor = 'rgba(197,160,89,0.8)';
+        });
+        el.addEventListener('mouseleave', function() {
+          ring.style.width = '36px'; ring.style.height = '36px';
+          ring.style.borderColor = 'rgba(197,160,89,0.5)';
+        });
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
