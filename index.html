@@ -339,14 +339,22 @@ src="https://www.facebook.com/tr?id=1293155638903438&ev=PageView&noscript=1"
 
   /* Video-Fix für Mobile: Zentriert das Gesicht statt nur die Haut */
   video, .hero-video {
+    /* Wir erzwingen, dass das Video nicht mehr unendlich zoomt */
+    width: 100% !important;
+    height: auto !important; 
+    min-height: 100vh !important; /* Behält den Full-Screen Look */
     object-fit: cover !important;
-    /* Falls das Gesicht der Frau eher rechts ist, nutze 70% oder 80%. 
-       Falls es links ist, nutze 20% oder 30%. 50% ist die Mitte. */
-    object-position: 80% center !important; 
-    height: 100vh !important;
-    width: 100vw !important;
+    /* Jetzt kommt der Trick: Wir verschieben den Fokus */
+    object-position: center 20% !important; 
+    transform: scale(1.2); /* Ein kontrollierter Zoom, statt der automatische 3x Zoom */
   }
 
+  .hero-image {
+    /* Sicherstellen, dass der Container nicht clippt */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
   .hero-overlay {
     /* Optional: Falls der Text auf dem Handy schwer lesbar ist, 
        kannst du hier den dunklen Schleier etwas verstärken */
