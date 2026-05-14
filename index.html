@@ -337,6 +337,22 @@ src="https://www.facebook.com/tr?id=1293155638903438&ev=PageView&noscript=1"
 @media (max-width: 768px) {
   html, body { overflow-x: hidden; width: 100%; position: relative; }
 
+  /* Video-Fix für Mobile: Zentriert das Gesicht statt nur die Haut */
+  video, .hero-video {
+    object-fit: cover !important;
+    /* Falls das Gesicht der Frau eher rechts ist, nutze 70% oder 80%. 
+       Falls es links ist, nutze 20% oder 30%. 50% ist die Mitte. */
+    object-position: 50% center !important; 
+    height: 100vh !important;
+    width: 100vw !important;
+  }
+
+  .hero-overlay {
+    /* Optional: Falls der Text auf dem Handy schwer lesbar ist, 
+       kannst du hier den dunklen Schleier etwas verstärken */
+    background: rgba(0, 0, 0, 0.4) !important;
+  }
+
   nav { padding: 15px 20px !important; }
   .nav-links { display: none; }
 
