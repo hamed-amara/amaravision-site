@@ -213,17 +213,18 @@ src="https://www.facebook.com/tr?id=1293155638903438&ev=PageView&noscript=1"
   .problem-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; margin-bottom: 14px; }
   .problem-body { font-size: 13px; color: rgba(255,255,255,0.42); line-height: 1.8; }
 
-  /* Sorgt dafür, dass die neuen Premium-Bilder edel und hell strahlen */
-  .problem-card img {
-    width: 100%;
-    height: auto;
-    opacity: 0.65; /* Hier stellst du den Dimmer ein! Höherer Wert = heller. Versuche mal 0.55 oder 0.6 */
-    transition: opacity 0.4s ease;
+ /* Hebt die Verdunkelung auf und lässt die neuen Premium-Bilder strahlen */
+  .problem-card {
+    background-size: cover;
+    background-position: center;
+    /* Ein zarter, dunkler Schleier (0.45) direkt über dem Bild, damit der weiße Text lesbar bleibt */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), var(--card-bg-url);
   }
 
-  /* Schöner Premium-Effekt: Wenn man mit der Maus drüberfährt, leuchtet das Bild noch sanfter auf */
-  .problem-card:hover img {
-    opacity: 0.75; 
+  /* Schöner, interaktiver Premium-Effekt beim Drüberfahren */
+  .problem-card:hover {
+    /* Der Schleier wird noch transparenter (0.2), das Bild leuchtet elegant auf */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), var(--card-bg-url);
   }
 
   /* ── Services ─────────────────────────────────────────────── */
