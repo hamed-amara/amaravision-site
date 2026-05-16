@@ -9,7 +9,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5JV6VC46');
 </script>
-<!-- End Google Tag Manager -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>AmaraVision — Mehr planbare Patientenanfragen für Ihre Klinik</title>
@@ -27,7 +26,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet" />
-<!-- Meta Pixel Code -->
 <script type="text/plain" data-cookieconsent="marketing">
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -43,7 +41,6 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1293155638903438&ev=PageView&noscript=1"
 /></noscript>
-<!-- End Meta Pixel Code -->
 <style>
   :root {
     --gold: #C5A059;
@@ -198,34 +195,35 @@ src="https://www.facebook.com/tr?id=1293155638903438&ev=PageView&noscript=1"
   .problem-section { padding: 130px 60px; }
   .problem-intro { max-width: 600px; margin-bottom: 72px; }
   .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(197,160,89,0.08); border: 1px solid rgba(197,160,89,0.08); }
+  
   .problem-card {
     background: #000; padding: 44px 36px; position: relative; overflow: hidden;
     transition: background 0.4s;
+    background-size: cover;
+    background-position: center;
+    /* DER HOCHWERTIGE DIMMER: 0.45 sorgt dafür, dass die Bilder elegant und hell durchschimmern! */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), var(--card-bg-url);
   }
+  
   .problem-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
     background: linear-gradient(to right, transparent, var(--gold), transparent);
     opacity: 0; transition: opacity 0.4s;
+    z-index: 2;
   }
-  .problem-card:hover { background: rgba(197,160,89,0.03); }
-  .problem-card:hover::before { opacity: 1; }
-  .problem-num { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 300; color: rgba(197,160,89,0.2); line-height: 1; margin-bottom: 24px; }
-  .problem-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; margin-bottom: 14px; }
-  .problem-body { font-size: 13px; color: rgba(255,255,255,0.42); line-height: 1.8; }
-
- /* Hebt die Verdunkelung auf und lässt die neuen Premium-Bilder strahlen */
-  .problem-card {
-    background-size: cover;
-    background-position: center;
-    /* Ein zarter, dunkler Schleier (0.45) direkt über dem Bild, damit der weiße Text lesbar bleibt */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), var(--card-bg-url);
-  }
-
-  /* Schöner, interaktiver Premium-Effekt beim Drüberfahren */
-  .problem-card:hover {
-    /* Der Schleier wird noch transparenter (0.2), das Bild leuchtet elegant auf */
+  
+  /* Interaktiver Hover-Effekt: Der Schleier lüftet sich sanft (0.2) und das Bild strahlt auf */
+  .problem-card:hover { 
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), var(--card-bg-url);
   }
+  .problem-card:hover::before { opacity: 1; }
+  
+  /* Sicherstellen, dass alle Texte über dem Hintergrundbild liegen */
+  .problem-card > * { position: relative; z-index: 1; }
+  
+  .problem-num { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 300; color: rgba(197,160,89,0.35); line-height: 1; margin-bottom: 24px; }
+  .problem-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; margin-bottom: 14px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+  .problem-body { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.8; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
 
   /* ── Services ─────────────────────────────────────────────── */
   .services-section { padding: 130px 60px; background: #040404; }
@@ -353,25 +351,20 @@ src="https://www.facebook.com/tr?id=1293155638903438&ev=PageView&noscript=1"
 
   /* Video-Fix für Mobile: Zentriert das Gesicht statt nur die Haut */
   video, .hero-video {
-    /* Wir erzwingen, dass das Video nicht mehr unendlich zoomt */
     width: 100% !important;
     height: auto !important; 
-    min-height: 100vh !important; /* Behält den Full-Screen Look */
+    min-height: 100vh !important;
     object-fit: cover !important;
-    /* Jetzt kommt der Trick: Wir verschieben den Fokus */
-   object-position: 50% !important; 
-    transform: scale(1.2); /* Ein kontrollierter Zoom, statt der automatische 3x Zoom */
+    object-position: 50% !important; 
+    transform: scale(1.2);
   }
 
   .hero-image {
-    /* Sicherstellen, dass der Container nicht clippt */
     display: flex;
     align-items: center;
     overflow: hidden;
   }
   .hero-overlay {
-    /* Optional: Falls der Text auf dem Handy schwer lesbar ist, 
-       kannst du hier den dunklen Schleier etwas verstärken */
     background: rgba(0, 0, 0, 0.4) !important;
   }
 
@@ -407,7 +400,6 @@ src="https://www.facebook.com/tr?id=1293155638903438&ev=PageView&noscript=1"
   .hero-sub { font-size: 16px !important; }
   .service-arrow { display: none !important; }
 
-  /* Bug 3 Fix: Footer-Links untereinander gestapelt */
   footer {
     flex-direction: column !important;
     align-items: center !important;
@@ -427,15 +419,11 @@ src="https://www.facebook.com/tr?id=1293155638903438&ev=PageView&noscript=1"
 </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JV6VC46"
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JV6VC46"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- Calendly popup -->
 <div class="calendly-overlay" id="calendlyOverlay">
   <div class="calendly-popup">
     <button class="calendly-close" id="calendlyClose" aria-label="Schließen">✕</button>
@@ -443,7 +431,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<!-- Nav -->
 <nav id="nav">
   <div class="nav-logo">AMARA<span>VISION</span></div>
   <div class="nav-links">
@@ -454,7 +441,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <button class="nav-cta">Erstgespräch</button>
 </nav>
 
-<!-- ── HERO ────────────────────────────────────────────────── -->
 <section class="hero">
   <div class="hero-image" id="heroImg">
     <img class="hero-fallback"
@@ -464,7 +450,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <video id="heroVideo" autoplay muted loop playsinline webkit-playsinline preload="auto"
         style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; pointer-events:none;"
         poster="">
-        <source src="images_neu/Video_Gen_3-bb50-0.mp4" type="video/mp4" />
         <source src="images_neu/Video_Gen_3-bb50-0.mp4" type="video/mp4" />
       </video>
     </div>
@@ -483,7 +468,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- Experience bar -->
 <div class="experience-bar">
   <p class="exp-bar-text">
     Expertise aus über einem Jahrzehnt bei Weltmarktführern wie
@@ -494,7 +478,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="divider"></div>
 
-<!-- ── PROBLEM ───────────────────────────────────────────────── -->
 <section class="problem-section" id="problem">
   <div class="problem-intro reveal">
     <div class="section-eyebrow">THE PREMIUM GAP</div>
@@ -504,21 +487,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       Die meisten Premium-Brands scheitern nicht an ihrer Qualität – sondern daran, wie sie digital wahrgenommen werden. Sichtbarkeit ohne Strategie erzeugt Aufmerksamkeit. Wahrnehmung erzeugt Nachfrage.
     </p>
   </div>
+  
   <div class="problem-grid">
-    <div class="problem-card reveal">
-      <div class="service-tile-bg" style="background-image:url('images/ChatGPT_Image_16.\ Mai.2026_18_17_57.png'); opacity: 0.2;"></div>
+    <div class="problem-card reveal" style="--card-bg-url: url('images/ChatGPT_Image_16.Mai.2026_18_17_57.png');">
       <div class="problem-num">01</div>
       <div class="problem-title">Weak digital perception</div>
       <div class="problem-body">Viele Premium-Marken investieren in Produkte – aber nicht in die Art, wie sie online wahrgenommen werden.</div>
     </div>
-    <div class="problem-card reveal reveal-d1">
-      <div class="service-tile-bg" style="background-image:url('images/ChatGPT_Image_16.\ Mai.2026_18_19_53.png'); opacity: 0.2;"></div>
+    
+    <div class="problem-card reveal reveal-d1" style="--card-bg-url: url('images/ChatGPT_Image_16.Mai.2026_18_19_53.png');">
       <div class="problem-num">02</div>
       <div class="problem-title">Inconsistent customer journey</div>
       <div class="problem-body">Wenn Website, Ads und Social Media nicht dieselbe Geschichte erzählen, geht Vertrauen verloren.</div>
     </div>
-    <div class="problem-card reveal reveal-d2">
-      <div class="service-tile-bg" style="background-image:url('images/ChatGPT_Image_16.\ Mai.2026_18_21_13.png'); opacity: 0.2;"></div>
+    
+    <div class="problem-card reveal reveal-d2" style="--card-bg-url: url('images/ChatGPT_Image_16.Mai.2026_18_21_13.png');">
       <div class="problem-num">03</div>
       <div class="problem-title">Attention without conversion</div>
       <div class="problem-body">Aufmerksamkeit allein erzeugt kein Wachstum. Ohne Strategie bleibt Potenzial ungenutzt.</div>
@@ -528,7 +511,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="divider"></div>
 
-<!-- ── SERVICES ───────────────────────────────────────────────── -->
 <section class="services-section" id="services">
   <div class="services-header reveal">
     <div class="section-eyebrow">Die Lösung</div>
@@ -586,7 +568,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="divider"></div>
 
-<!-- ── WHY ────────────────────────────────────────────────────── -->
 <section class="why-section" id="why">
   <div class="reveal">
     <div class="section-eyebrow">Warum AmaraVision</div>
@@ -649,7 +630,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="divider"></div>
 
-<!-- ── CLIENTS ────────────────────────────────────────────────── -->
 <section class="clients-section">
   <div style="text-align:center;" class="reveal">
     <div class="section-eyebrow">Für wen ich arbeite</div>
@@ -705,7 +685,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="divider"></div>
 
-<!-- ── CTA ────────────────────────────────────────────────────── -->
 <section class="cta-section">
   <div class="cta-bg"></div>
   <div class="cta-line reveal"></div>
@@ -722,7 +701,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ── FOOTER ─────────────────────────────────────────────────── -->
 <footer>
   <div class="footer-logo">AMARA<span>VISION</span></div>
   <div class="footer-links">
@@ -739,11 +717,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.addEventListener('DOMContentLoaded', function () {
 
     // ── 1. Video sofort starten (Bug Fix: Autoplay mobil) ─────
-    // pointer-events:none verhindert Play-Button auf iOS
     var v = document.getElementById('heroVideo');
     if (v) {
       v.play().catch(function () {
-        // Autoplay blockiert (Battery Saver etc.) — Poster bleibt sichtbar
         v.style.display = 'none';
       });
     }
@@ -782,8 +758,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     // ── 3. Calendly mit zuverlässigem iOS-Fix ─────────────────
-    // Bug Fix: body position:fixed + top:-scrollY ist der einzig
-    // zuverlässige Weg um Scroll-Freeze auf iPhone/Safari zu verhindern.
     var overlay  = document.getElementById('calendlyOverlay');
     var frame    = document.getElementById('calendlyFrame');
     var closeBtn = document.getElementById('calendlyClose');
@@ -795,7 +769,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (!frame.src || frame.src === window.location.href) {
         frame.src = frame.dataset.src;
       }
-      // Scroll-Position merken, dann Body fixieren
       savedScrollY = window.scrollY;
       document.body.style.overflow = 'hidden';
       document.body.style.position = 'fixed';
@@ -807,13 +780,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     function closeCalendly() {
       overlay.classList.remove('open');
-      // Alle Sperren aufheben — Reihenfolge ist wichtig
       document.body.style.overflow = '';
       document.body.style.position = '';
       document.body.style.top      = '';
       document.body.style.width    = '';
       document.removeEventListener('touchmove', preventTouch);
-      // Exakt zur alten Position zurückspringen
       window.scrollTo(0, savedScrollY);
     }
 
@@ -829,7 +800,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (e.key === 'Escape') closeCalendly();
     });
 
-    // Sicherheitsnetz: Falls Body noch fixiert ist aber Overlay geschlossen
     setInterval(function () {
       if (overlay && !overlay.classList.contains('open') && document.body.style.position === 'fixed') {
         closeCalendly();
