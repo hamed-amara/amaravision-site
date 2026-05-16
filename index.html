@@ -213,6 +213,19 @@ src="https://www.facebook.com/tr?id=1293155638903438&ev=PageView&noscript=1"
   .problem-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; margin-bottom: 14px; }
   .problem-body { font-size: 13px; color: rgba(255,255,255,0.42); line-height: 1.8; }
 
+  /* Sorgt dafür, dass die neuen Premium-Bilder edel und hell strahlen */
+  .problem-card img {
+    width: 100%;
+    height: auto;
+    opacity: 0.55; /* Hier stellst du den Dimmer ein! Höherer Wert = heller. Versuche mal 0.55 oder 0.6 */
+    transition: opacity 0.4s ease;
+  }
+
+  /* Schöner Premium-Effekt: Wenn man mit der Maus drüberfährt, leuchtet das Bild noch sanfter auf */
+  .problem-card:hover img {
+    opacity: 0.75; 
+  }
+
   /* ── Services ─────────────────────────────────────────────── */
   .services-section { padding: 130px 60px; background: #040404; }
   .services-header { max-width: 640px; margin-bottom: 72px; }
