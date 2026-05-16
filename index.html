@@ -191,7 +191,7 @@ src="https://www.facebook.com/tr?id=1293155638903438&ev=PageView&noscript=1"
   .reveal-d1 { transition-delay: 0.14s; }
   .reveal-d2 { transition-delay: 0.28s; }
 
-  /* ── Problem section ──────────────────────────────────────── */
+ /* ── Problem section ──────────────────────────────────────── */
   .problem-section { padding: 130px 60px; }
   .problem-intro { max-width: 600px; margin-bottom: 72px; }
   .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(197,160,89,0.08); border: 1px solid rgba(197,160,89,0.08); }
@@ -201,30 +201,43 @@ src="https://www.facebook.com/tr?id=1293155638903438&ev=PageView&noscript=1"
     transition: background 0.4s;
     background-size: cover;
     background-position: center;
-    /* DER HOCHWERTIGE DIMMER: 0.45 sorgt dafür, dass die Bilder elegant und hell durchschimmern! */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), var(--card-bg-url);
   }
   
+  /* Wir erstellen ein echtes Pseudo-Element für das Bild – so greift der Dimmer perfekt */
+  .problem-card::after {
+    content: ''; position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    /* UNSER HELLIGKEITS-DIMMER: 0.35 sorgt für ein klares, edles Durchschimmern */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), var(--card-bg);
+    opacity: 1; transition: opacity 0.4s ease;
+    z-index: 0;
+  }
+  
+  /* Beim Hovern lüftet sich der Schleier und das Bild wird noch klarer sichtbar */
+  .problem-card:hover::after {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), var(--card-bg);
+  }
+
   .problem-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
     background: linear-gradient(to right, transparent, var(--gold), transparent);
     opacity: 0; transition: opacity 0.4s;
     z-index: 2;
   }
-  
-  /* Interaktiver Hover-Effekt: Der Schleier lüftet sich sanft (0.2) und das Bild strahlt auf */
-  .problem-card:hover { 
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), var(--card-bg-url);
-  }
   .problem-card:hover::before { opacity: 1; }
   
-  /* Sicherstellen, dass alle Texte über dem Hintergrundbild liegen */
+  /* Drückt Texte und Zahlen über das Hintergrundbild */
   .problem-card > * { position: relative; z-index: 1; }
   
   .problem-num { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 300; color: rgba(197,160,89,0.35); line-height: 1; margin-bottom: 24px; }
-  .problem-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; margin-bottom: 14px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
-  .problem-body { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.8; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+  .problem-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; margin-bottom: 14px; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
+  .problem-body { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.8; text-shadow: 0 1px 3px rgba(0,0,0,0.6); }
 
+  /* Zuweisung der Pfade mit doppelten Anführungszeichen, um die Leerzeichen im Dateinamen abzufangen */
+  .card-01 { --card-bg: url("images/ChatGPT_Image_16. Mai.2026_18_17_57.png"); }
+  .card-02 { --card-bg: url("images/ChatGPT_Image_16. Mai.2026_18_19_53.png"); }
+  .card-03 { --card-bg: url("images/ChatGPT_Image_16. Mai.2026_18_21_13.png"); }
+  
   /* ── Services ─────────────────────────────────────────────── */
   .services-section { padding: 130px 60px; background: #040404; }
   .services-header { max-width: 640px; margin-bottom: 72px; }
