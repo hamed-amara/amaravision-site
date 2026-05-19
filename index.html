@@ -604,34 +604,29 @@ text-shadow:0 1px 6px rgba(0,0,0,.45);
 
   /* ── Clients ──────────────────────────────────────────────── */
   .clients-section{
-    position:relative;
-    padding:130px 60px;
+position:relative;
+padding:130px 60px;
 
-    background:linear-gradient(
-    180deg,
-    #111315 0%,
-    #16181B 50%,
-    #111315 100%
-    );
+background:#111315;
+overflow:hidden;
+}
 
-    z-index:1;
-    }
+.clients-section::before{
+content:'';
+position:absolute;
+inset:0;
 
-    .clients-section::before{
-      content:'';
-      position:absolute;
-      inset:0;
+background:
+linear-gradient(
+180deg,
+#111315 0%,
+#16181B 50%,
+#111315 100%
+);
 
-      background:
-      radial-gradient(
-      circle at center,
-      rgba(182,172,160,.02),
-      transparent 70%
-      );
-
-      pointer-events:none;
-      z-index:-1;
-      }
+z-index:-1;
+pointer-events:none;
+}
 
     .clients-grid{
     display:grid;
