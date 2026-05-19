@@ -570,27 +570,36 @@ text-shadow:0 1px 6px rgba(0,0,0,.45);
   /* ── Why section ──────────────────────────────────────────── */
   .why-section { padding: 130px 60px; }
   .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; margin-top: 72px; }
-  .why-cards { display: flex; flex-direction: column; gap: 1px; background: rgba(197,160,89,0.08); }
-  .why-card { background: #000; padding: 36px 32px; display: flex; gap: 24px; align-items: flex-start; transition: background 0.4s; }
-  .why-card:hover { background: rgba(197,160,89,0.03); }
+  
+  /* Left cards */
+  .why-cards { display: flex; flex-direction: column; gap: 1px; background: rgba(214,201,187,.06); }
+  .why-card { background: var(--graphite); padding: 36px 32px; display: flex; gap: 24px; align-items: flex-start; transition: background 0.4s, transform .4s ease; }
+  .why-card:hover { background: rgba(214,201,187,.03); transform:translateX(4px); }
+  
+  /* Icon */
   .why-card-icon {
     width: 44px; height: 44px; flex-shrink: 0;
-    border: 1px solid rgba(197,160,89,0.22); display: flex; align-items: center; justify-content: center;
-    color: var(--gold); transition: background 0.4s;
+    border: 1px solid rgba(214,201,187,.12); display: flex; align-items: center; justify-content: center;
+    color: var(--sand); transition: background 0.4s ease, border-color .4s ease;
   }
-  .why-card:hover .why-card-icon { background: rgba(197,160,89,0.08); }
-  .why-card-icon svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.2; }
-  .why-card-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; margin-bottom: 8px; }
-  .why-card-body { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.75; }
+  .why-card:hover .why-card-icon { background: rgba(214,201,187,.05); border-color:rgba(214,201,187,.24); }
+  .why-card-icon svg { width: 20px; height: 20px; stroke: var(--sand); fill: none; stroke-width: 1.2; }
+  
+  /* Text */
+  .why-card-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; color:var(--ivory); margin-bottom: 8px; }
+  .why-card-body { font-size: 13px; color:rgba(244,241,234,.55); line-height: 1.75; }
 
-  .why-stat-stack { display: flex; flex-direction: column; gap: 1px; background: rgba(197,160,89,0.1); }
-  .why-stat { background: #000; padding: 36px 40px; border-left: 2px solid transparent; transition: border-color 0.4s, background 0.4s; }
-  .why-stat:hover { border-left-color: var(--gold); background: rgba(197,160,89,0.02); }
-  .why-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 8px; }
-  .why-stat-label { font-size: 12px; color: rgba(255,255,255,0.38); line-height: 1.6; }
-  .why-quote { background: rgba(197,160,89,0.04); padding: 36px 40px; border-left: 2px solid var(--gold); margin-top: 1px; }
-  .why-quote-text { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; font-weight: 300; color: rgba(255,255,255,0.75); line-height: 1.6; margin-bottom: 12px; }
-  .why-quote-attr { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+  /* Right side stats */
+  .why-stat-stack { display: flex; flex-direction: column; gap: 1px; background: rgba(214,201,187,.06); }
+  .why-stat { background: var(--graphite); padding: 36px 40px; border-left: 2px solid transparent; transition: border-color 0.4s ease, background 0.4s ease; }
+  .why-stat:hover { border-left-color: var(--sand); background: rgba(214,201,187,.03); }
+  .why-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; color: var(--sand); line-height: 1; margin-bottom: 8px; }
+  .why-stat-label { font-size: 12px; color: rgba(244,241,234,.40); line-height: 1.6; }
+  
+  /* Quote */
+  .why-quote { background: rgba(214,201,187,.03); padding: 36px 40px; border-left: 2px solid var(--sand); margin-top: 1px; }
+  .why-quote-text { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; font-weight: 300; color: rgba(244,241,234,.75); line-height: 1.6; margin-bottom: 12px; }
+  .why-quote-attr { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--taupe); }
 
   /* ── Clients ──────────────────────────────────────────────── */
   .clients-section { padding: 130px 60px; background: #040404; }
@@ -884,7 +893,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div>
           <div class="why-card-title">Estée Lauder Cosmetics — 3 Jahre</div>
-          <div class="why-card-body">Offline-Luxury-Marketing auf höchstem Niveau: Brand Positioning, Premium-Kommunikation, Kampagnenlogik für anspruchsvolle Zielgruppen — genau das, was Ästhetik-Kliniken brauchen.</div>
+          <div class="why-card-body">Offline-Luxury-Marketing auf höchstem Niveau: Brand Positioning, Premium-Kommunikation, Kampagnenlogik für anspruchsvolle Zielgruppen — genau das, was Premium-Brands brauchen.</div>
         </div>
       </div>
       <div class="why-card">
