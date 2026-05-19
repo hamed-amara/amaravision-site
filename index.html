@@ -680,9 +680,11 @@ pointer-events:none;
   background:
   radial-gradient(
   circle at center,
-  rgba(182,172,160,.03),
+  rgba(214,201,187,.08),
   transparent 70%
   );
+  opacity:0;
+  transition:opacity .6s ease;
   pointer-events:none;
   background-image:
   linear-gradient(
@@ -717,6 +719,7 @@ z-index:1;
     transform:translateY(-4px);
     background:rgba(43,43,43,.60);
     border-color:rgba(214,201,187,.18);
+    opacity:1;
  }
 .client-card:hover .service-tile-bg{
   transform:scale(1.05);
