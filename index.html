@@ -151,7 +151,7 @@ nav.scrolled {
 }
 
 .nav-logo span{
-    color: var(--sand);
+    color: var(--taupe);
 }
 
 .nav-links{
@@ -164,15 +164,15 @@ nav.scrolled {
     font-size:11px;
     letter-spacing:.18em;
     text-transform:uppercase;
-    color: rgba(244,241,234,0.48);
+    color: rgba(244,241,234,.38);
     text-decoration:none;
     transition:
-    color .3s,
-    opacity .3s;
+    color .3s ease,
+    opacity .3s ease;
 }
 
 .nav-links a:hover{
-    color: var(--ivory);
+    color: var(--sand);
 }
 
 .nav-cta{
@@ -479,7 +479,6 @@ top:0;
 left:0;
 right:0;
 height:1px;
-
 background:
 linear-gradient(
 to right,
@@ -487,7 +486,6 @@ transparent,
 var(--sand),
 transparent
 );
-
 opacity:0;
 transition:opacity .4s;
 z-index:2;
