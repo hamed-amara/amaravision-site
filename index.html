@@ -798,7 +798,7 @@ z-index:1;
     height: auto !important; 
     min-height: 100vh !important;
     object-fit: cover !important;
-    object-position: 50% !important; 
+    object-position: 55% center !important; 
     transform: scale(1.2);
   }
 
@@ -813,6 +813,10 @@ z-index:1;
 
   nav { padding: 15px 20px !important; }
   .nav-links { display: none; }
+  .cta-nav{
+    padding:14px 22px;
+    font-size:12px;
+    }
 
   section {
     padding-left: 20px !important;
@@ -838,10 +842,35 @@ z-index:1;
     margin-right: 0 !important;
   }
 
+  .problem-card{
+    transform:none !important;
+
+    background:rgba(52,46,40,.35);
+    border-color:rgba(214,201,187,.14);
+
+    /* leichter Glow dauerhaft */
+    box-shadow:
+    inset 0 0 0 1px rgba(214,201,187,.04),
+    0 12px 40px rgba(0,0,0,.25);
+  }
+
+  .problem-card:active{
+    background:rgba(52,46,40,.65);
+    border-color:rgba(214,201,187,.22);
+    transform:scale(.98);
+  }
+
   .hero-h1 { font-size: 32px !important; line-height: 1.2 !important; }
   .section-h2 { font-size: 26px !important; line-height: 1.3 !important; }
   .hero-sub { font-size: 16px !important; }
   .service-arrow { display: none !important; }
+
+  .cta-features{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+    }
 
   footer {
     flex-direction: column !important;
