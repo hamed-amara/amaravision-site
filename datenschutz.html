@@ -9,56 +9,199 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet" />
 
 <style>
-  :root { --gold: #C5A059; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { background: #000; color: rgba(255,255,255,0.7); font-family: 'DM Sans', sans-serif; line-height: 1.8; cursor: none; overflow-x: hidden; }
+  :root{
+--charcoal:#060708;
+--ivory:#f4f1ea;
+--sand:#d6c9bb;
+--taupe:#8f8376;
+}
 
-  /* ── Cursor Styles ────────────────────────────────────────── */
-  .cursor { position: fixed; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); }
-  .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(197,160,89,0.5); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-  /* ── Noise grain ────────────────────────────────────────── */
-  body::before {
-    content: ''; position: fixed; inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none; z-index: 100; opacity: 0.3;
-  }
+body{
+background:var(--charcoal);
+color:rgba(244,241,234,.72);
+font-family:'DM Sans',sans-serif;
+line-height:1.9;
+overflow-x:hidden;
+}
 
-  /* ── Nav ────────────────────────────────────────────────── */
-  nav { padding: 40px 60px; display: flex; justify-content: center; border-bottom: 1px solid rgba(197,160,89,0.1); position: relative; z-index: 10; }
-  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 21px; letter-spacing: 0.16em; color: #fff; text-decoration: none; }
-  .nav-logo span { color: var(--gold); }
+body::before{
+content:'';
+position:fixed;
+inset:0;
+pointer-events:none;
+opacity:.18;
+background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
 
-  /* ── Content ────────────────────────────────────────────── */
-  .content { padding: 100px 20px; max-width: 850px; margin: 0 auto; position: relative; z-index: 2; }
-  .section-eyebrow { font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 18px; display: block; }
-  h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4vw, 54px); font-weight: 300; color: #fff; text-align: center; margin-bottom: 60px; }
-  
-  .legal-box { background: rgba(197,160,89,0.03); border: 1px solid rgba(197,160,89,0.08); padding: 50px; border-radius: 2px; }
-  h5 { color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 24px; margin-top: 40px; margin-bottom: 15px; font-weight: 300; }
-  p { margin-bottom: 22px; font-size: 15px; font-weight: 300; }
-  b { color: #fff; font-weight: 400; }
+/* NAV */
 
-  /* ── Footer ─────────────────────────────────────────────── */
-  footer { padding: 60px; border-top: 1px solid rgba(255,255,255,0.06); text-align: center; }
-  .footer-copy { font-size: 11px; color: rgba(255,255,255,0.15); letter-spacing: 0.05em; }
+.legal-nav{
+padding:28px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid rgba(214,201,187,.06);
+background:rgba(6,7,8,.7);
+backdrop-filter:blur(20px);
+}
 
-  @media (max-width: 768px) {
-    body { cursor: auto; }
-    .cursor, .cursor-ring { display: none; }
-    .legal-box { padding: 30px 20px; }
-    nav { padding: 30px 20px; }
-  }
+.nav-logo{
+font-family:'Cormorant Garamond',serif;
+font-size:21px;
+letter-spacing:.16em;
+text-decoration:none;
+color:var(--ivory);
+}
+
+.nav-logo span{
+color:var(--sand);
+}
+
+.legal-nav-links{
+display:flex;
+gap:40px;
+}
+
+.legal-nav-links a{
+text-decoration:none;
+font-size:13px;
+color:rgba(244,241,234,.65);
+}
+
+.legal-btn{
+padding:14px 28px;
+border:1px solid rgba(214,201,187,.15);
+text-decoration:none;
+color:var(--ivory);
+font-size:12px;
+letter-spacing:.18em;
+text-transform:uppercase;
+}
+
+
+/* CONTENT */
+
+.content{
+padding:120px 30px;
+max-width:950px;
+margin:auto;
+}
+
+.section-eyebrow{
+font-size:11px;
+letter-spacing:.30em;
+text-transform:uppercase;
+color:var(--sand);
+text-align:center;
+margin-bottom:18px;
+}
+
+h2{
+font-family:'Cormorant Garamond',serif;
+font-size:clamp(42px,6vw,68px);
+font-weight:300;
+line-height:1.1;
+color:var(--ivory);
+text-align:center;
+margin-bottom:60px;
+}
+
+.legal-box{
+background:rgba(24,25,27,.45);
+border:1px solid rgba(214,201,187,.06);
+backdrop-filter:blur(10px);
+padding:60px;
+transition:.4s;
+}
+
+.legal-box:hover{
+background:rgba(52,46,40,.65);
+border-color:rgba(214,201,187,.18);
+transform:translateY(-3px);
+}
+
+h5{
+font-family:'Cormorant Garamond',serif;
+font-size:28px;
+font-weight:300;
+color:var(--ivory);
+margin-top:40px;
+margin-bottom:20px;
+}
+
+p{
+font-size:15px;
+color:rgba(244,241,234,.55);
+margin-bottom:20px;
+}
+
+b{
+color:var(--ivory);
+}
+
+footer{
+padding:50px;
+margin-top:100px;
+border-top:1px solid rgba(214,201,187,.06);
+text-align:center;
+}
+
+.footer-copy{
+font-size:12px;
+color:rgba(244,241,234,.25);
+}
+
+
+@media(max-width:768px){
+.legal-nav{
+padding:20px;
+}
+
+.legal-nav-links{
+display:none;
+}
+
+.content{
+padding:70px 20px;
+}
+
+.legal-box{
+padding:30px;
+}
+
+h2{
+font-size:42px;
+}
+
+}
 </style>
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<nav>
-  <a href="index.html" class="nav-logo">AMARA<span>VISION</span></a>
+<nav class="legal-nav">
+<a href="index.html" class="nav-logo">
+AMARA<span>VISION</span>
+</a>
+<div class="legal-nav-links">
+<a href="index.html#problem">
+Das Problem
+</a>
+<a href="index.html#services">
+Leistungen
+</a>
+<a href="index.html#why">
+Über AmaraVision
+</a>
+</div>
+<a href="index.html" class="legal-btn">
+Erstgespräch
+</a>
 </nav>
 
 <section class="content">
@@ -82,38 +225,7 @@
   <div class="footer-copy">© 2025 AmaraVision · Wien</div>
 </footer>
 
-<script>
-  // ── Cursor Script (angepasst auf 0.35 für Schnelligkeit) ──
-  document.addEventListener('DOMContentLoaded', function() {
-    var cur = document.getElementById('cursor');
-    var ring = document.getElementById('cursorRing');
-    var isDesktop = window.matchMedia('(pointer: fine)').matches;
 
-    if (isDesktop && cur && ring) {
-      var mx = 0, my = 0, rx = 0, ry = 0;
-      document.addEventListener('mousemove', function(e) {
-        mx = e.clientX; my = e.clientY;
-        cur.style.left = mx + 'px'; cur.style.top = my + 'px';
-      });
-      (function loop() {
-        rx += (mx - rx) * 0.35; // Erhöhter Wert für schnellere Reaktion
-        ry += (my - ry) * 0.35;
-        ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-        requestAnimationFrame(loop);
-      })();
-      document.querySelectorAll('a, b').forEach(function(el) {
-        el.addEventListener('mouseenter', function() {
-          ring.style.width = '54px'; ring.style.height = '54px';
-          ring.style.borderColor = 'rgba(197,160,89,0.8)';
-        });
-        el.addEventListener('mouseleave', function() {
-          ring.style.width = '36px'; ring.style.height = '36px';
-          ring.style.borderColor = 'rgba(197,160,89,0.5)';
-        });
-      });
-    }
-  });
-</script>
 
 </body>
 </html>
