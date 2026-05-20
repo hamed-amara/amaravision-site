@@ -51,26 +51,114 @@ background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='htt
 
 /* NAV */
 
-nav{
+.legal-nav{
+
 padding:28px 60px;
+
 display:flex;
-align-items:center;
+
 justify-content:space-between;
+
+align-items:center;
+
 border-bottom:1px solid rgba(214,201,187,.06);
+
 background:rgba(6,7,8,.7);
+
 backdrop-filter:blur(20px);
+
+position:sticky;
+
+top:0;
+
+z-index:999;
 }
 
 .nav-logo{
+
 font-family:'Cormorant Garamond',serif;
+
 font-size:21px;
+
 letter-spacing:.16em;
+
 text-decoration:none;
+
 color:var(--ivory);
 }
 
 .nav-logo span{
+
 color:var(--sand);
+}
+
+.legal-nav-links{
+
+display:flex;
+
+gap:40px;
+}
+
+.legal-nav-links a{
+
+text-decoration:none;
+
+font-size:13px;
+
+color:rgba(244,241,234,.65);
+
+transition:.3s;
+}
+
+.legal-nav-links a:hover{
+
+color:var(--ivory);
+}
+
+.legal-btn{
+
+padding:14px 28px;
+
+border:1px solid rgba(214,201,187,.15);
+
+text-decoration:none;
+
+color:var(--ivory);
+
+font-size:12px;
+
+letter-spacing:.18em;
+
+text-transform:uppercase;
+
+transition:.35s;
+}
+
+.legal-btn:hover{
+
+background:rgba(214,201,187,.08);
+}
+
+
+@media(max-width:768px){
+
+.legal-nav{
+
+padding:20px;
+}
+
+.legal-nav-links{
+
+display:none;
+}
+
+.legal-btn{
+
+padding:12px 18px;
+
+font-size:11px;
+}
+
 }
 
 /* CONTENT */
@@ -223,18 +311,7 @@ font-size:14px;
 </style>
 </head>
 <body>
-<div class="section-eyebrow">Rechtliches</div>
-<div class="gold-line"></div>
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 
-<!-- Calendly popup -->
-<div class="calendly-overlay" id="calendlyOverlay">
-  <div class="calendly-popup">
-    <button class="calendly-close" id="calendlyClose" aria-label="Schließen">✕</button>
-    <iframe id="calendlyFrame" src="" data-src="https://calendly.com/hamed-amaravision/30min?background_color=080808&text_color=ffffff&primary_color=c5a059" title="Erstgespräch buchen" loading="lazy"></iframe>
-  </div>
-</div>
 
 <!-- Nav -->
 <nav class="legal-nav">
