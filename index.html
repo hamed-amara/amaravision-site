@@ -686,29 +686,29 @@ z-index:2;
 
   /* ── Clients ──────────────────────────────────────────────── */
   .clients-section{
-position:relative;
-padding:130px 60px;
+    position:relative;
+    padding:130px 60px;
 
-background:var(--charcoal);
-overflow:hidden;
-}
+    background:var(--charcoal);
+    overflow:hidden;
+    }
 
 .clients-section::before{
-content:'';
-position:absolute;
-inset:0;
+    content:'';
+    position:absolute;
+    inset:0;
 
-background:
-linear-gradient(
-180deg,
-#111315 0%,
-#16181B 50%,
-#111315 100%
-);
+    background:
+    linear-gradient(
+    180deg,
+    #111315 0%,
+    #16181B 50%,
+    #111315 100%
+    );
 
-z-index:-1;
-pointer-events:none;
-}
+    z-index:-1;
+    pointer-events:none;
+    }
 
     .clients-grid{
     display:grid;
@@ -731,16 +731,19 @@ pointer-events:none;
     }
 
     /* Bild */
-    .client-card .service-tile-bg{
+   .client-card .service-tile-bg{
     position:absolute;
     inset:0;
+    background-image:
+    linear-gradient(
+    rgba(17,19,21,.72),
+    rgba(17,19,21,.72)
+    ),
+    var(--client-bg);
     background-size:cover;
     background-position:center;
-    opacity:.75;
-    filter:brightness(.92);
-    transition:
-    transform .6s ease,
-    filter .6s ease;
+    transform:scale(1);
+    transition: transform .45s ease, background-image .45s ease;
     z-index:0;
     }
 
@@ -752,45 +755,38 @@ pointer-events:none;
     }
 
   .client-card::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:
-  radial-gradient(
-  circle at center,
-  rgba(214,201,187,.08),
-  transparent 70%
-  );
-  opacity:0;
-  transition:opacity .6s ease;
-  pointer-events:none;
-  background-image:
-  linear-gradient(
-  rgba(13,13,14,.55),
-  rgba(13,13,14,.55)
-  ),var(--client-bg);
-  background-size:cover;
-  background-position:center;
-  transition:
-  transform .5s ease,
-  background-image .5s ease;
-  z-index:0;
-  }
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:1px;
+    background: linear-gradient(to right,
+    transparent,
+    var(--sand),
+    transparent
+    );
+    opacity:0;
+    transition:opacity .4s;
+    z-index:3;
+    }
+
+.client-card:hover::before{opacity:1;}
 
   /* Bottom line */
   .client-card::after{
-content:'';
-position:absolute;
-inset:0;
+    content:'';
+    position:absolute;
+    inset:0;
 
-background:
-linear-gradient(
-rgba(17,19,21,.18),
-rgba(17,19,21,.35)
-);
+    background:
+    linear-gradient(
+    rgba(17,19,21,.18),
+    rgba(17,19,21,.35)
+    );
 
-z-index:1;
-}
+    z-index:1;
+    }
 
   /* Hover */
   .client-card:hover { 
@@ -800,8 +796,13 @@ z-index:1;
     opacity:1;
  }
 .client-card:hover .service-tile-bg{
+  background-image:
+  linear-gradient(
+  rgba(17,19,21,.42),
+  rgba(17,19,21,.42)
+  ),
+  var(--client-bg);
   transform:scale(1.05);
-  filter:brightness(.8);
   }
 
   .client-card:hover::after { transform: scaleX(1); }
@@ -816,8 +817,8 @@ z-index:1;
   .client-card:hover .client-icon { background:rgba(214,201,187,.04); border-color:rgba(214,201,187,.20); }
   
   /* Text */
-  .client-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300; color:var(--ivory); margin-bottom: 12px; }
-  .client-sub { font-size: 12px; color:rgba(244,241,234,.50); line-height: 1.8; margin-bottom: 24px; text-shadow: 0 1px 3px rgba(0,0,0,0.75);}
+  .client-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300; color:var(--ivory); margin-bottom: 12px; text-shadow:0 2px 10px rgba(0,0,0,.75);}
+  .client-sub { font-size: 12px; color:rgba(244,241,234,.50); line-height: 1.8; margin-bottom: 24px; text-shadow: 0 1px 3px rgba(0,0,0,0.75); text-shadow:0 2px 10px rgba(0,0,0,.75);}
   .client-items { display: flex; flex-direction: column; gap: 7px; }
   .client-item { display: flex; align-items: center; gap: 10px; font-size: 12px; color:rgba(244,241,234,.65); }
   .client-item::before { content: ''; width: 4px; height: 1px; background: var(--taupe); flex-shrink: 0; }
@@ -1187,7 +1188,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="cta-line reveal"></div>
   <h2 class="cta-h2 reveal">Bereit für planbare <br>Neukundengewinnung?</h2>
   <p class="cta-sub reveal">Kostenloses Erstgespräch — 30 Minuten, ohne Druck, ohne Pitch.</p>
-  <p class="cta-sub2 reveal">In einem kostenlosen Strategiegespräch analysieren wir gemeinsam <br>deine aktuellen Wachstumshebel und zeigen dir, wie Amaravision ein individuelles System für hochwertige Kunden aufbauen kann.</p>
+  <p class="cta-sub2 reveal">In einem kostenlosen Strategiegespräch analysieren wir gemeinsam deine <br>aktuellen Wachstumshebel und zeigen dir, wie Amaravision ein individuelles System für hochwertige Kunden aufbauen kann.</p>
   <div class="reveal">
     <button class="btn-gold" style="padding:17px 52px; font-size:12px;">KOSTENLOSE ANALYSE SICHERN</button>
   </div>
