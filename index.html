@@ -540,12 +540,82 @@ text-shadow:0 1px 6px rgba(0,0,0,.45);
     background: var(--graphite); padding: 52px 40px;
     position: relative; overflow: hidden; transition:transform .4s ease, background 0.4s;
   }
-  .service-tile-bg {
-    position: absolute; inset: 0; background-size: cover; background-position: center;
-    opacity: 0; transition: opacity 0.5s, transform .5s ease;
-  }
-  .service-tile:hover .service-tile-bg { opacity: 0.10; transform:scale(1.05); }
-  .service-tile > *:not(.service-tile-bg) { position: relative; z-index: 1; }
+ .service-tile-bg{
+    position:absolute;
+    inset:0;
+
+    background-image:
+    linear-gradient(
+    rgba(17,19,21,0.72),
+    rgba(17,19,21,0.72)
+    ),
+    var(--card-bg);
+
+    background-size:cover;
+    background-position:center;
+
+    transform:scale(1);
+
+    transition:
+    transform .45s ease,
+    background-image .45s ease;
+
+    z-index:0;
+}
+
+.service-tile:hover .service-tile-bg{
+
+    background-image:
+    linear-gradient(
+    rgba(17,19,21,0.42),
+    rgba(17,19,21,0.42)
+    ),
+    var(--card-bg);
+
+    transform:scale(1.05);
+}
+  .service-tile{
+background:var(--graphite);
+padding:52px 40px;
+position:relative;
+overflow:hidden;
+
+transition:
+transform .4s ease;
+}
+
+.service-tile:hover{
+transform:translateY(-4px);
+}
+.service-tile::before{
+
+content:'';
+
+position:absolute;
+
+top:0;
+left:0;
+right:0;
+
+height:1px;
+
+background:
+linear-gradient(
+to right,
+transparent,
+var(--sand),
+transparent
+);
+
+opacity:0;
+transition:opacity .4s;
+
+z-index:2;
+}
+
+.service-tile:hover::before{
+opacity:1;
+}
 
   /* Number */
   .service-num { font-family: 'Cormorant Garamond', serif; font-size: 68px; font-weight: 300; color: rgba(214,201,187,.18); line-height: 1; margin-bottom: 28px; transition: color 0.4s; }
@@ -567,6 +637,10 @@ text-shadow:0 1px 6px rgba(0,0,0,.45);
   /* Arrow */
   .service-arrow { position: absolute; bottom: 40px; right: 40px; font-size: 18px; color: rgba(214,201,187,.25); transition: color 0.3s, transform 0.3s; }
   .service-tile:hover .service-arrow { color: var(--sand); transform: translate(4px, -4px); }
+
+  .service-01{--card-bg:url("images/thesystem_01.png");}
+  .service-02{--card-bg:url("images/thesystem_02.png");}
+  .service-03{--card-bg:url("images/thesystem_03.png");}
 
   /* ── Why section ──────────────────────────────────────────── */
   .why-section { padding: 130px 60px; background:var(--charcoal); }
@@ -992,20 +1066,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p style="font-size:15px; color:rgba(255,255,255,0.4); line-height:1.85; margin-top:22px;">Amaravision verbindet Performance-Marketing, Conversion-Systeme und psychologische Creatives zu einem System, das planbar wächst.</p>
   </div>
   <div class="services-grid">
-    <div class="service-tile reveal">
-      <div class="service-tile-bg" style="background-image:url('images/thesystem_01.png'); opacity: 0.4;"></div>
+    <div class="service-tile service-01 reveal">
+      <div class="service-tile-bg"></div>
       <div class="service-num">01</div>
       <div class="service-title">Performance Ads</div>
       <div class="service-body">Wir planen, schalten und optimieren Meta Ads und Google Ads, die die richtigen Menschen erreichen und in qualifizierte Anfragen verwandeln.</div>
     </div>
-    <div class="service-tile reveal reveal-d1">
-     <div class="service-tile-bg" style="background-image:url('images/thesystem_02.png'); opacity: 0.4;"></div>
+    <div class="service-tile service-02 reveal reveal-d1">
+      <div class="service-tile-bg"></div>
       <div class="service-num">02</div>
       <div class="service-title">Funnels & Conversion</div>
       <div class="service-body">Landingpages und Systeme, die Interesse filtern und Besucher in Kunden verwandeln.</div>
     </div>
-    <div class="service-tile reveal reveal-d2">
-      <div class="service-tile-bg" style="background-image:url('images/thesystem_03.png'); opacity: 0.4;"></div>
+    <div class="service-tile service-03 reveal reveal-d2">
+      <div class="service-tile-bg"></div>
       <div class="service-num">03</div>
       <div class="service-title">Growth Systems</div>
       <div class="service-body">Tracking, Testing und Optimierung für nachhaltiges, planbares Wachstum.</div>
@@ -1108,9 +1182,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="cta-section">
   <div class="cta-bg"></div>
   <div class="cta-line reveal"></div>
-  <h2 class="cta-h2 reveal">Bereit für <br>planbare Neukundengewinnung?</h2>
+  <h2 class="cta-h2 reveal">Bereit für planbare <br>Neukundengewinnung?</h2>
   <p class="cta-sub reveal">Kostenloses Erstgespräch — 30 Minuten, ohne Druck, ohne Pitch.</p>
-  <p class="cta-sub2 reveal">In einem kostenlosen Strategiegespräch analysieren wir gemeinsam deine aktuellen Wachstumshebel und zeigen dir, wie Amaravision ein individuelles System für hochwertige Kunden aufbauen kann.</p>
+  <p class="cta-sub2 reveal">In einem kostenlosen Strategiegespräch analysieren wir gemeinsam <br>deine aktuellen Wachstumshebel und zeigen dir, wie Amaravision ein individuelles System für hochwertige Kunden aufbauen kann.</p>
   <div class="reveal">
     <button class="btn-gold" style="padding:17px 52px; font-size:12px;">KOSTENLOSE ANALYSE SICHERN</button>
   </div>
